@@ -14,11 +14,13 @@ shinyServer(function(input, output) {
     coords
   })
   isochrone <- eventReactive(input$submit, {
+    withProgress(message = 'Sending Request',
     isochrone <- osrmIsochrone(loc = c(isoCoords()[['lon']],
                                        isoCoords()[['lat']]),
                                breaks = as.numeric(input$driveTime),
                                res = 30) %>%
       st_as_sf()
+    )
     isochrone
   })
   output$map <- renderLeaflet({
@@ -40,7 +42,8 @@ shinyServer(function(input, output) {
       addLegend(data = isochrone,
                 pal = pal, 
                 values = ~steps,
-                title = 'Drive Time (min.)') %>%
+                title = 'Drive Time (min.)',
+                opacity = 1) %>%
       addMarkers(lng = input$lon, input$lat) %>%
       setView(isoCoords()[['lon']], isoCoords()[['lat']], zoom = 9)
   })

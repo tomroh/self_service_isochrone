@@ -5,8 +5,8 @@ account: troh
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 537883
-bundleId: 1666267
+bundleId: 1666307
 url: https://troh.shinyapps.io/osrmIsochrone/
-when: 1540652180.34083
+when: 1540654773.01005
 asMultiple: FALSE
 asStatic: FALSE

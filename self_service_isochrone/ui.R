@@ -2,8 +2,7 @@ library(shiny)
 library(leaflet)
 library(shinythemes)
 
-shinyUI(fluidPage(theme = shinytheme('flatly'),
-                  
+shinyUI(fluidPage(theme = shinytheme('paper'),
                   headerPanel(title = "Drive Time Isochrone"),
                   sidebarLayout(
                     sidebarPanel(
